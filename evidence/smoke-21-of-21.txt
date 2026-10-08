@@ -1,0 +1,25 @@
+==> profile fast-160k (from the last ./glm53 up)
+[PASS] /v1/models lists the served name - ['GLM-5.3-EXL3-3.38bpw', 'glm-5.3']
+[PASS] /health 200 - {"ok": true, "backend": "tensorfold", "busy": false, "requests_running": 0, "requests_total": 0, "prompt_tokens_total": 0, "completion_tokens_total": 0, "prefill_seconds_total": 0, "decode_seconds_tot
+[PASS] /tokenize code thinking on == sweep prompt ids - 52 vs 52 tokens, first diff None
+[PASS] /tokenize prose thinking on == sweep prompt ids - 45 vs 45 tokens, first diff None
+[PASS] /tokenize math thinking on == sweep prompt ids - 59 vs 59 tokens, first diff None
+[PASS] /tokenize chat_explain thinking on == sweep prompt ids - 73 vs 73 tokens, first diff None
+[PASS] /tokenize chat_multiturn thinking on == sweep prompt ids - 174 vs 174 tokens, first diff None
+[PASS] /tokenize long_doc thinking on == sweep prompt ids - 2842 vs 2842 tokens, first diff None
+[PASS] thinking off prompt ends <|assistant|></think> - [13, 154828, 154842]
+[PASS] thinking on prompt ends <|assistant|><think> - [13, 154828, 154841]
+[PASS] thinking off: no error
+[PASS] thinking off: finish stop at a turn-end id - finish stop, last id [154827], n 2
+[PASS] thinking off: empty reasoning, content has OK - content 'OK'
+[PASS] thinking off: no markup leak - OK
+[PASS] thinking on: no error
+[PASS] thinking on: reasoning non-empty - 43 chars
+[PASS] thinking on: no markup leak in either channel
+[PASS] thinking on: stops at a turn-end id with an answer - content '391'
+       (chunks carrying both channels: 0; TF sends one delta per token, so the token that closes </think> may carry both - read both fields)
+[PASS] drafted ids == "draft": false ids - n 48 / 48, modes {'mode': 'serial', 'consensus': 'ok'} / {'mode': 'dflash', 'consensus': 'ok'}
+[PASS] default request drafts with DFlash2 - mtp_mode dflash, depth 7, confidence 0.6
+[PASS] tf_mtp other than dflash refused - {'message': 'tf_mtp \'auto\': this server drafts with DFlash2 only ("tf_mtp": "dflash", the default); send "draft": false for the serial reference', 'type': 'se
+wrote /home/<user>/glm53-tensorfold/state/logs/smoke_20261008_020341.json
+ALL CHECKS PASSED: 21/21
